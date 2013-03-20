@@ -1,5 +1,7 @@
 <h3 class="title">Welcome to Mini Pivotal!!!</h3>
-<div class="btn"><%= link_to "+ Project",  new_project_path %></div>
+<%if user_signed_in?%>
+    <div class="btn"><%= link_to "+ Project",  new_project_path %></div>
+<% end %>
 <div class="offset3 span8 project_list">
   <%#= render "projects/project_list" %>
 </div>

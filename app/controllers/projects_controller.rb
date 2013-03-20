@@ -6,13 +6,16 @@ class ProjectsController < ApplicationController
   #Create the instance of a new Project
   def new
     @project = Project.new();
+    logger.info"---------=-----------inspecting current user >>>>>>>>>>> #{current_user.inspect}"
   end
 
 
   #Creating and saving the new Project
   def create
-     @project = Project.create(params[:project])
-     redirect_to "/"
+    user = current_user
+      user.projects << Project.create(params[:project])
+     @projects = user.projects
+     redirect_to root_path
     #respond_to do |format|
     #  format.js
     #end

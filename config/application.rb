@@ -58,5 +58,21 @@ module MiniPivotal
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.action_mailer.default_url_options = { :host => 'local.minipivotal.com' }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.default :charset => "utf-8"
+
+
+    ActionMailer::Base.smtp_settings = {
+        :address => "smtp.gmail.com",
+        :port => 587,
+        :authentication => :plain,
+        :domain => ENV['GMAIL_SMTP_USER'],
+        :user_name => "neha@weboniselab.com",
+        :password => "6948@home",
+    }
   end
 end

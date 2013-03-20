@@ -9,6 +9,11 @@ gem 'mysql2'
 gem 'devise'
 gem 'simple_form'
 
+group :development do
+  gem 'sextant'
+  gem 'hirb','0.7.0'
+end
+
 
 # Gems used only for assets and not required
 # in production environments by default.
