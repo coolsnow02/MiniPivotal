@@ -1,0 +1,7 @@
+<h3>Create Your Own Project</h3>
+<%= simple_form_for @project do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :member_limit %>
+    <%= f.submit "Create" %>
+<% end %>

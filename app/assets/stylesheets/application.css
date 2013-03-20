@@ -9,5 +9,18 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap
  *= require_tree .
  */
+
+.nav-color{
+    color: #364791;
+}
+.title{
+    padding-left: 420px;
+    margin-top: 0px;
+}
+/*.title-nav{*/
+    /*font-family: sans-serif;*/
+    /*color: #e1e1e8;*/
+/*}*/

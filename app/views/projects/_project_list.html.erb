@@ -1,0 +1,11 @@
+<div class="project_list">
+<% projects.each do |project| %>
+    <div>
+      <ul>
+        <li><%= project.name %></li>
+        <li><%= project.description %></li>
+        <li><%= project.member_limit %></li>
+      </ul>
+    </div>
+<% end %>
+</div>

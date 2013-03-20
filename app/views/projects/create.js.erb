@@ -1,0 +1,5 @@
+<% if @user.projects.present? %>
+$(".project_list").replaceWith('<%= escape_javascript(render("project_list"))%>');
+<% else %>
+$(".project_list").html('<span><h3>You have no Projects</h3></span>');
+<% end %>
