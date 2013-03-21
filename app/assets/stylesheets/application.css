@@ -13,14 +13,41 @@
  *= require_tree .
  */
 
-.nav-color{
-    color: #364791;
-}
+/*.nav-color{*/
+/*background: #364791 !important;*/
+/*}*/
+/*.navbar-inverse .brand {*/
+/*color: #ffffff !important;*/
+/*}*/
+/*.navbar-inverse .brand, .navbar-inverse .nav>li>a{*/
+/*color: #ffffff !important;*/
+/*}*/
 .title{
     padding-left: 420px;
     margin-top: 0px;
 }
-/*.title-nav{*/
-    /*font-family: sans-serif;*/
-    /*color: #e1e1e8;*/
-/*}*/
+.proj-description textarea{
+    margin: 5px 20px 30px !important;
+    width: 206px;
+    height: 80px;
+}
+.projSubmit{
+    margin-left: 250px;
+    margin-top: 15px;
+}
+.projectList-inner span{
+
+}
+.memberList label{
+    padding-left: 86px;
+}
+.memberList textarea{
+    margin-top: -45px;
+    margin-left: 180px;
+}
+.memberList ul{
+margin-top: -30px;
+margin-left: 180px;
+width: 218px;
+    }
+

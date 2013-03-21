@@ -13,11 +13,22 @@ class ProjectsController < ApplicationController
   #Creating and saving the new Project
   def create
     user = current_user
-      user.projects << Project.create(params[:project])
-     @projects = user.projects
-     redirect_to root_path
-    #respond_to do |format|
-    #  format.js
-    #end
+    user.projects << Project.create(params[:project])
+    @projects = user.projects
+    #@project = @projects.where(:id != nil).last
+
+    redirect_to root_path
+
+  end
+
+  def show_invi_form
+    @users = User.where("email LIKE ?", "%#{params[:q]}%")
+    if !@users
+      #user_email =
+    end
+    respond_to do |format|
+      format.html
+      format.json { render :json => @users.map(&:attributes)}
+    end
   end
 end

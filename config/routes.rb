@@ -1,7 +1,15 @@
 MiniPivotal::Application.routes.draw do
   devise_for :users
 
-  resources :projects
+  resources :projects do
+    member do
+      post :send_invite
+    end
+
+    collection do
+      get :show_invi_form
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

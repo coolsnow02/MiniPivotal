@@ -1,9 +1,19 @@
 <h3>Create Your Own Project</h3>
-<div class="form-horizontal">
+<div class="form-horizontal well">
   <%= simple_form_for @project do |f| %>
       <%= f.input :name, :presence => true %>
-      <%= f.input :description, :presence => true %>
+
+      <div class="proj-description">
+        <%= f.label :description %>
+        <%= f.text_area :description, :presence => true %>
+      </div>
+
       <%= f.input :member_limit, :presence => true %>
-      <%= f.submit "Create" %>
+
+      <div class="memberList">
+        <%= label_tag :member_emails, "Project Members" %>
+        <%= text_area_tag :member_emails, "data-pre" => @project.users.map(&:attributes).to_json %>
+      </div>
+      <%= f.submit "Create", :class => "btn btn-success projSubmit" %>
   <% end %>
 </div>
