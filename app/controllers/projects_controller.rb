@@ -21,14 +21,19 @@ class ProjectsController < ApplicationController
 
   end
 
+  #Search existing users from record or add a new user email to send invites
   def show_invi_form
-    @users = User.where("email LIKE ?", "%#{params[:q]}%")
-    if !@users
-      #user_email =
+    logger.info"--------------------checking 'q' format"
+    @users = User.where("email LIKE ?", "%#{params[:q]}%")# - current_user
+    member = @users.collect{|u| {:id => u.email, :email => u.email}}
+    #member = params[:q]
+    if ((/\b[A-Z0-9._%a-z-]+@(?:[A-Z0-9a-z-]+.)+[A-Za-z]{2,4}\z/).match(params[:q]))
+      logger.info"----------"
+      member = [{:id => params[:q], :email => params[:q]}]
     end
     respond_to do |format|
       format.html
-      format.json { render :json => @users.map(&:attributes)}
+      format.json { render :json => member}
     end
   end
 end
