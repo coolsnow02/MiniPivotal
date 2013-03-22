@@ -26,7 +26,9 @@ $(document).ready(function () {
     $("#member_emails").tokenInput("/projects/show_invi_form.json", {
             crossDomain: false,
             prePopulate: $("#member_emails").data("pre"),
-//            theme: "facebook",
+            theme: "facebook",
             propertyToSearch: "email"
         });
+
+
 });

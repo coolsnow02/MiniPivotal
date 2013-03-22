@@ -49,5 +49,9 @@
 margin-top: -30px;
 margin-left: 180px;
 width: 218px;
-    }
+}
 
+.projectList-outer{
+    margin-top: 15px;
+    position: relative;
+}

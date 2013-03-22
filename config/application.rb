@@ -71,8 +71,8 @@ module MiniPivotal
         :port => 587,
         :authentication => :plain,
         :domain => ENV['GMAIL_SMTP_USER'],
-        :user_name => "neha@weboniselab.com",
-        :password => "6948@home",
+        :user_name => "pansingh@weboniselab.com",
+        :password => "pansingh6186",
     }
   end
 end
