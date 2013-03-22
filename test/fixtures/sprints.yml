@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  number_of_developers: 1
+  week: 1
+  points: 1
+
+two:
+  name: MyString
+  number_of_developers: 1
+  week: 1
+  points: 1

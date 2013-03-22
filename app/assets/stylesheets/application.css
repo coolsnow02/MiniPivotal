@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require token-input
  *= require bootstrap
  *= require_tree .
  */
@@ -54,4 +55,13 @@ width: 218px;
 .projectList-outer{
     margin-top: 15px;
     position: relative;
+}
+.projLink{
+    color: #fbfbfb !important;
+}
+.user-mail{
+    margin-top: 8px;
+    margin-right: 4px;
+    font-size: 16px;
+    font-style: oblique;
 }

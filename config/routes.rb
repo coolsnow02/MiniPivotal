@@ -9,6 +9,8 @@ MiniPivotal::Application.routes.draw do
     collection do
       get :show_invi_form
     end
+
+    resources :sprint
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

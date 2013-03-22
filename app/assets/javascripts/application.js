@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require jquery.tokeninput
+//= require custom
 //= require twitter/bootstrap
-//= require_tree .
+//= require livevalidation
+
 
 //$('#project_member_limit').live('click', function(){
 //    var num = $(this).val
@@ -22,13 +24,10 @@
 
 
 $(document).ready(function () {
-//    $("#member_emails").tokenInput("/url/to/your/script/");
     $("#member_emails").tokenInput("/projects/show_invi_form.json", {
             crossDomain: false,
             prePopulate: $("#member_emails").data("pre"),
             theme: "facebook",
             propertyToSearch: "email"
         });
-
-
 });

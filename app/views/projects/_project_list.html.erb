@@ -1,12 +1,18 @@
 <% if user_signed_in? %>
-<% projects.each do |project| %>
-    <div class="projectList-outer" xmlns="http://www.w3.org/1999/html">
-      <div id="<%= project.id%>_project_list" class="btn btn-primary projectList-inner" rel=<%= project.id%> >
-        <legend><span><%= project.name %></span></legend>
-        <span><%= project.description %></span> </br>
-        <span>Members : <%= project.member_limit %></span>
-      </div>
+    <div class="span4 clearfix">
+      <% projects.each do |project| %>
+          <div class="row">
+            <div class="span1">
+              <div class="projectList-outer" xmlns="http://www.w3.org/1999/html">
+                <div id="<%= project.id%>_project_list" class="btn btn-primary projectList-inner projectBlock" rel=<%= project.id%> >
+                  <legend><span><%= link_to project.name, project_path(project.id), :class => "projLink" %></span></legend>
+                  <span><%= project.description %></span> </br>
+                  <span>Members : <%= project.member_limit %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
     </div>
-<% end %>
 <% end %>
 <!--</div>-->

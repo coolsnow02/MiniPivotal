@@ -1,19 +1,19 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
 <head>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 </head>
 <body>
-<p><h3>Hello <%= @user.email %></h3></p>
+<p><h3><strong>Hello <%= @user.email %></strong></h3></p>
 <p>
-  You Have been invited to a Project on MiniPivotal!!
-  You can sign in with your newly created account to view the newly added project.
-  You can open the link to sign in... <%= @url %>
+  You Have been invited to a Project on <strong>MiniPivotal!!</strong></br>
+  You can sign in with your newly created account to view the newly added project.</br>
+  You can open the link to sign in... <strong><a href=<%= @url %> > </a> </strong></br>
+</p></br>
   <span>
-    You can access your new MiniPivotal account using these credentials..
-    <strong>Login id: <%= @user.email %></strong>
-    <strong>Password: <%= @user.password %></strong>
+    You can access your new <strong>MiniPivotal</strong> account using these credentials..</br>
+    <strong>Login id: <%= @user.email %></strong></br>
+    <strong>Password: <%= @user.password %></strong></br>
   </span>
-</p>
-
 </body>
 </html>

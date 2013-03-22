@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
 
 
   #Creating and saving the new Project
+  #Task:Sends mails to new as well as existing user's informing about the invitation to the project
   def create
     current_user.projects << Project.create(params[:project])
     @projects = current_user.projects
@@ -38,7 +39,6 @@ class ProjectsController < ApplicationController
   #Search existing users from record or add a new user email to send invites
   def show_invi_form
     logger.info"--------------------checking 'q' format--------- #{params[:q].inspect}"
-    #@users = User.where("email LIKE ?", "%#{params[:q]}%")
     @users = User.search(params[:q])
     member = @users.collect{|u| {:id => u.email, :email => u.email}}
     #member = params[:q]

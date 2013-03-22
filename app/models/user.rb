@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   #Associations
   has_many :project_user
   has_many :projects, :through => :project_user
+  has_and_belongs_to_many :sprints
 
   # Accessible attributes
   attr_accessible :email, :password, :password_confirmation, :remember_me

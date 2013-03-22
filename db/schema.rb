@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130321110349) do
+ActiveRecord::Schema.define(:version => 20130322092518) do
 
   create_table "project_users", :force => true do |t|
     t.integer  "user_id"
@@ -30,6 +30,25 @@ ActiveRecord::Schema.define(:version => 20130321110349) do
     t.datetime "updated_at",   :null => false
     t.string   "description"
     t.integer  "member_limit"
+  end
+
+  create_table "sprint_members", :force => true do |t|
+    t.integer  "sprint_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sprint_members", ["sprint_id"], :name => "index_sprint_members_on_sprint_id"
+  add_index "sprint_members", ["user_id"], :name => "index_sprint_members_on_user_id"
+
+  create_table "sprints", :force => true do |t|
+    t.string   "name"
+    t.integer  "number_of_developers"
+    t.integer  "week"
+    t.integer  "points"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "users", :force => true do |t|
