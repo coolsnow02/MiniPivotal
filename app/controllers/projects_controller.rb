@@ -10,9 +10,9 @@ class ProjectsController < ApplicationController
   #Creating and saving the new Project
   #Task:Sends mails to new as well as existing user's informing about the invitation to the project
   def create
-    current_user.projects << Project.create(params[:project])
+    @project = Project.create(params[:project])
     @projects = current_user.projects
-
+    @projects << @project
     members = params[:member_emails]
     logger.info">>>> checking members >>>>>>>>>>>>>> #{members.inspect}"
     members = members.split(",")
@@ -23,17 +23,24 @@ class ProjectsController < ApplicationController
         UserMailer.welcome_email(member).deliver
       else
         password = 8.times.map{('a'..'z').to_a[rand(26)]}.join
-        user = User.new(:email => member, :password => password, :password_confirmation => password)
-
+        user = @project.users.new(:email => member, :password => password, :password_confirmation => password)
+        logger.info"#############################{user.inspect}"
+        logger.info"#############################{(@project.project_user.where(:user_id => user.id)).inspect}"
+        logger.info"#############################{(@project.project_user.where(:user_id => user.id).first).inspect}"
         if user.save
           user.skip_confirmation!
           UserMailer.new_user_email(user).deliver
         end
       end
+      #if member==current_user.email
+      #  project_member = User.where(:email => member).first
+      #  @project.project_user.where(:user_id => project_member.id, :project_id => @project.id).first.role = "owner"
+        #else
+        #  project_member = User.where(:email => member)
+        #  @project.project_user.new(:user_id => project_member.id, :project_id => @project.id, :role => "member")
+      #end
     end
-
     redirect_to root_path
-
   end
 
   #Search existing users from record or add a new user email to send invites
@@ -53,6 +60,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-
+    @project = Project.find(params[:id])
   end
 end

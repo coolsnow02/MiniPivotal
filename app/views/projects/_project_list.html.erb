@@ -5,6 +5,9 @@
             <div class="span1">
               <div class="projectList-outer" xmlns="http://www.w3.org/1999/html">
                 <div id="<%= project.id%>_project_list" class="btn btn-primary projectList-inner projectBlock" rel=<%= project.id%> >
+                  <% if project==projects.first %>
+                  <span class="label label-important">NEW</span>
+                  <% end %>
                   <legend><span><%= link_to project.name, project_path(project.id), :class => "projLink" %></span></legend>
                   <span><%= project.description %></span> </br>
                   <span>Members : <%= project.member_limit %></span>
