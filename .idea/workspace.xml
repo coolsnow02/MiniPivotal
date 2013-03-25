@@ -19,28 +19,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/sprints/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="235" selection-start="578" selection-end="578" vertical-scroll-proportion="-4.375">
+            <state line="8" column="90" selection-start="478" selection-end="478" vertical-scroll-proportion="0.16551724">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="107" column="34" selection-start="2235" selection-end="2235" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/projects/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="47" selection-start="267" selection-end="267" vertical-scroll-proportion="0.14482759">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="project.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/project.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="5" selection-start="713" selection-end="815" vertical-scroll-proportion="0.0">
+            <state line="55" column="13" selection-start="1501" selection-end="1501" vertical-scroll-proportion="-28.958334">
               <folding />
             </state>
           </provider>
@@ -49,7 +49,7 @@
       <file leaf-file-name="projects_helper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/projects_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="17" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0">
+            <state line="18" column="5" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -68,7 +68,6 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/projects/_project_list.html.erb" />
         <option value="$PROJECT_DIR$/app/models/sprint.rb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/controllers/sprints_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
@@ -76,11 +75,12 @@
         <option value="$PROJECT_DIR$/db/migrate/20130322092518_create_sprint_member.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130325111154_add_project_id_to_sprint.rb" />
-        <option value="$PROJECT_DIR$/app/views/sprints/new.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/project.rb" />
         <option value="$PROJECT_DIR$/app/helpers/projects_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/projects/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/sprints/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
       </list>
     </option>
   </component>
@@ -243,24 +243,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="helpers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mini_Pivotal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Mini_Pivotal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -599,13 +581,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="23" selection-start="1992" selection-end="1992" vertical-scroll-proportion="0.87586206">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/sprints_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="40" selection-start="1734" selection-end="1734" vertical-scroll-proportion="0.0">
@@ -683,30 +658,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/sprints/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="235" selection-start="578" selection-end="578" vertical-scroll-proportion="-4.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/project.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="5" selection-start="713" selection-end="815" vertical-scroll-proportion="0.0">
+        <state line="16" column="143" selection-start="709" selection-end="709" vertical-scroll-proportion="0.32042724">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/projects_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="17" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0">
+        <state line="18" column="5" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/projects/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="47" selection-start="267" selection-end="267" vertical-scroll-proportion="0.14482759">
+        <state line="55" column="13" selection-start="1501" selection-end="1501" vertical-scroll-proportion="-28.958334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="34" selection-start="2235" selection-end="2235" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/sprints/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="90" selection-start="478" selection-end="478" vertical-scroll-proportion="0.16551724">
           <folding />
         </state>
       </provider>

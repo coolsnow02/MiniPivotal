@@ -96,4 +96,16 @@
 .sprint_form form div .devLabel{
     margin-left: 87px;
 }
+.sprint_form form div .sprint-dates{
+  margin-left: 35px;
+}
+.sprint_form form div label{
+    margin-left: -64px;
+}
+.sprint_form form div div input{
+    margin-left: -64px;
+}
+.sprint_form form div .date-fields{
+    margin-left: 113px;
+}
 

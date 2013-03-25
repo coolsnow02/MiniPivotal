@@ -2,15 +2,29 @@
   <div class="sprint_form form-horizontal">
     <%= simple_form_for(@sprint, :url => project_sprints_path(@project)) do |f| %>
         <%= f.input :name, :presence => true %>
-        <%= f.input :week, :presence => true %>
         <%= f.input :points, :presence => true %>
+        <%= f.input :week, :presence => true %>
+        <div>
+          <%= f.label :start_time, "Start Date", :class => 'sprint-dates'%>
+          <%= f.text_field :start_time, :id => "sprint_start_time",:class => "date-fields"%>
+        </div>
+        <div>
+          <%= f.label :end_time, "End Date", :class => 'sprint-dates' %>
+          <%= f.text_field :end_time, :id => "sprint_end_time", :class => "date-fields"%>
+        </div>
+
         <%= f.input :number_of_developers %>
-        <%= f.input :start_date, :id => "sprint_start_date", :onblur => "if (this.value == '') {this.value = 'Select start date';}", :onfocus => "if (this.value == 'Select start date') {this.value = '';}", :value => 'Select start date' %>
         <div>
           <%= label_tag :developers, "Developers", :class => "devLabel" %>
           <%= select_tag :developers, options_for_select(@members), {:multiple => true} %>
         </div>
-        <%= f.submit "Create Sprint" %>
+        <%= f.submit "Create Sprint", :class => "btn btn-primary" %>
     <% end %>
   </div>
 </div>
+
+<script>
+    $(function() {
+        $( "#sprint_start_time" ).datepicker();
+    });
+</script>
