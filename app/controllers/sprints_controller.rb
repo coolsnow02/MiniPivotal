@@ -4,6 +4,7 @@ class SprintsController < ApplicationController
   before_filter :fetch_projects
   before_filter :fetch_sprint, :except => [:new, :create]
 
+  #New instance of a Sprint
   def new
     logger.info"!!!!!! In NEW !!!!!!!!!!!!!! Project from before-filter!!!!!!!!!!!!#{@project.inspect}"
     @sprint = Sprint.new()
@@ -11,6 +12,7 @@ class SprintsController < ApplicationController
     @members = @project.users.collect{|member| member.email}
   end
 
+  #Create a new Sprint and assign developers for the Sprint
   def create
     logger.info"!!!!!!! In CREATE !!!!!!!!!!!!! Project from before-filter!!!!!!!!!!!!#{@project.inspect}"
     #@project = Project.find(params[:project_id]).includes(:project_users, :users)
@@ -34,10 +36,12 @@ class SprintsController < ApplicationController
   end
 
   private
+  #Method:Fetches the concerned project for the sprint
   def fetch_projects
     @project = Project.where(params[:project_id]).includes(:users, :project_users).first
   end
 
+  #Method:Fetches the Sprint in question
   def fetch_sprint
     @sprint = Sprint.find(params[:id])
   end

@@ -18,15 +18,19 @@ class ProjectsController < ApplicationController
     members = members.split(",")
     members.each do |member|
       user = User.search(member).first
-      if user.present?
+      if user.present? && user!= current_user
+        logger.info">>>>>>>>>>!!!!!!!!! inside if user is present >>>>>>>>>>>>>>>"
         p= @project.project_users.new(:user_id => user.id, :project_id => @project.id, :role => 'member')
         p.save
         UserMailer.welcome_email(member).deliver
       else
+        logger.info">>>>>>>>>>!!!!! inside else user is present >>>>>>>>>>>>>>>"
         password = 8.times.map{('a'..'z').to_a[rand(26)]}.join
         user = @project.users.new(:email => member, :password => password, :password_confirmation => password)
         if user.save
-          p = @project.project_users.where(:user_id => user.id)
+          logger.info">>>>>>>>>>!! inside save for new user >>>>>>>>>>>>>>>"
+          p = @project.project_users.where(:user_id => user.id).first
+          logger.info"****************** #{p.inspect}"
           p.update_attribute(:role, 'member')
           user.skip_confirmation!
           UserMailer.new_user_email(user).deliver
