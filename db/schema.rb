@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325100816) do
+ActiveRecord::Schema.define(:version => 20130325121652) do
+
+  create_table "comments", :force => true do |t|
+    t.text     "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "project_users", :force => true do |t|
     t.integer  "user_id"
@@ -42,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20130325100816) do
     t.datetime "updated_at",           :null => false
     t.date     "start_time"
     t.date     "end_time"
+    t.integer  "project_id"
   end
 
   create_table "sprints_users", :id => false, :force => true do |t|
@@ -53,6 +60,12 @@ ActiveRecord::Schema.define(:version => 20130325100816) do
 
   add_index "sprints_users", ["sprint_id"], :name => "index_sprints_users_on_sprint_id"
   add_index "sprints_users", ["user_id"], :name => "index_sprints_users_on_user_id"
+
+  create_table "tasks", :force => true do |t|
+    t.text     "task"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

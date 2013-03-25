@@ -8,10 +8,12 @@ gem 'rails', '3.2.10'
 gem 'mysql2'
 gem 'devise'
 gem 'simple_form'
+gem 'awesome_nested_fields'
 
 group :development do
   gem 'sextant'
   gem 'hirb','0.7.0'
+  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 end
 
 

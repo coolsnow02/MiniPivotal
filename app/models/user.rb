@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
   validates :password_confirmation, :presence => true
 
   def self.search(search)
-    logger.info "#################model#########################{search.inspect}"
     if search.present?
       where("email LIKE ?", "%#{search}%")
     end

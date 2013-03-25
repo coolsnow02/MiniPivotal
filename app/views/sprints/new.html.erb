@@ -5,6 +5,7 @@
         <%= f.input :week, :presence => true %>
         <%= f.input :points, :presence => true %>
         <%= f.input :number_of_developers %>
+        <%= f.input :start_date, :id => "sprint_start_date", :onblur => "if (this.value == '') {this.value = 'Select start date';}", :onfocus => "if (this.value == 'Select start date') {this.value = '';}", :value => 'Select start date' %>
         <div>
           <%= label_tag :developers, "Developers", :class => "devLabel" %>
           <%= select_tag :developers, options_for_select(@members), {:multiple => true} %>

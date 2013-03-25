@@ -16,4 +16,8 @@ class Project < ActiveRecord::Base
   validates :description, :presence => true, :length => {:minimum => 3, :maximum => 50}
   validates :member_limit, :length => {:minimum => 0, :maximum => 10}, :numericality => {:only_integer => true, :greater_than_or_equal_to => 0}
 
+  def project_owner(project, user)
+    project.project_users.where(:user_id => user.id).first.role
+  end
+
 end

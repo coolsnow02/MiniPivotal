@@ -5,9 +5,11 @@
     </div>
   </div>
   <div class="row span12">
+    <% if project_owner(@project, current_user) %>
     <div class="offset1 span2">
       <div class="btn btn-inverse"><%= link_to "Create Sprint", new_project_sprint_path(@project.id)%></div>
     </div>
+        <% end %>
     <ul class="nav nav-pills">
       <li class="active">
         <a href="javascript:void(0)">Current</a>
