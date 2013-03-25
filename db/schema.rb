@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(:version => 20130325121652) do
     t.integer  "member_limit"
   end
 
+  create_table "sprint_members", :force => true do |t|
+    t.integer  "sprint_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sprint_members", ["sprint_id"], :name => "index_sprint_members_on_sprint_id"
+  add_index "sprint_members", ["user_id"], :name => "index_sprint_members_on_user_id"
+
   create_table "sprints", :force => true do |t|
     t.string   "name"
     t.integer  "number_of_developers"
@@ -50,16 +60,6 @@ ActiveRecord::Schema.define(:version => 20130325121652) do
     t.date     "end_time"
     t.integer  "project_id"
   end
-
-  create_table "sprints_users", :id => false, :force => true do |t|
-    t.integer  "sprint_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "sprints_users", ["sprint_id"], :name => "index_sprints_users_on_sprint_id"
-  add_index "sprints_users", ["user_id"], :name => "index_sprints_users_on_user_id"
 
   create_table "tasks", :force => true do |t|
     t.text     "task"
