@@ -52,6 +52,7 @@
         <ul class="nav pull-right">
           <% if user_signed_in? %>
               <li class="user-mail"><span>Welcome <%= current_user.email %></span></li>
+              <li><%= link_to "Home", root_path, :method => :delete  %></li>
               <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete  %></li>
           <% else %>
               <li><%= link_to "Sign In", new_user_session_path  %></li>

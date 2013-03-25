@@ -13,23 +13,26 @@ class ProjectsController < ApplicationController
     @project = Project.create(params[:project])
     @projects = current_user.projects
     @projects << @project
+    owner = @project.project_users.where(:user_id => current_user.id).first
+    owner.update_attribute(:role, 'owner')
     members = params[:member_emails]
     logger.info">>>> checking members >>>>>>>>>>>>>> #{members.inspect}"
     members = members.split(",")
     logger.info">>>> checking members as array >>>>>>>>>>>>>> #{members.inspect}"
     members.each do |member|
-      user = User.search(member)
+      user = User.search(member).first
       if user.present?
-        #@project.project_users.new(:user_id => user.id, :project_id => @project.id, :role => 'member')
-
+        p= @project.project_users.new(:user_id => user.id, :project_id => @project.id, :role => 'member')
+        p.save
         UserMailer.welcome_email(member).deliver
       else
         password = 8.times.map{('a'..'z').to_a[rand(26)]}.join
-        user = @project.users.new(:email => member, :password => password, :password_confirmation => password)
+        user = User.new(:email => member, :password => password, :password_confirmation => password)
         logger.info"#############################{user.inspect}"
-        logger.info"#############################{(@project.project_user.where(:user_id => user.id)).inspect}"
-        logger.info"#############################{(@project.project_user.where(:user_id => user.id).first).inspect}"
+        logger.info"#############################{(@project.project_users.where(:user_id => user.id)).inspect}"
+        logger.info"#############################{(@project.project_users.where(:user_id => user.id).first).inspect}"
         if user.save
+          p= @project.project_users.new(:user_id => user.id, :project_id => @project.id, :role => 'member')
           user.skip_confirmation!
           UserMailer.new_user_email(user).deliver
         end
