@@ -1,11 +1,14 @@
-<div class="">
+<div class="well span5">
   <div class="sprint_form form-horizontal">
     <%= simple_form_for(@sprint, :url => project_sprints_path(@project)) do |f| %>
         <%= f.input :name, :presence => true %>
         <%= f.input :week, :presence => true %>
         <%= f.input :points, :presence => true %>
         <%= f.input :number_of_developers %>
-        <%#= f.input :member_names, :multiple => true %>
+        <div>
+          <%= label_tag :developers, "Developers", :class => "devLabel" %>
+          <%= select_tag :developers, options_for_select(@members), {:multiple => true} %>
+        </div>
         <%= f.submit "Create Sprint" %>
     <% end %>
   </div>

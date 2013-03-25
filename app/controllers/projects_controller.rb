@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
   #Create the instance of a new Project
   def new
     @project = Project.new();
-    logger.info"---------=-----------inspecting current user >>>>>>>>>>> #{current_user.inspect}"
   end
 
 
@@ -16,9 +15,7 @@ class ProjectsController < ApplicationController
     owner = @project.project_users.where(:user_id => current_user.id).first
     owner.update_attribute(:role, 'owner')
     members = params[:member_emails]
-    logger.info">>>> checking members >>>>>>>>>>>>>> #{members.inspect}"
     members = members.split(",")
-    logger.info">>>> checking members as array >>>>>>>>>>>>>> #{members.inspect}"
     members.each do |member|
       user = User.search(member).first
       if user.present?
@@ -27,12 +24,10 @@ class ProjectsController < ApplicationController
         UserMailer.welcome_email(member).deliver
       else
         password = 8.times.map{('a'..'z').to_a[rand(26)]}.join
-        user = User.new(:email => member, :password => password, :password_confirmation => password)
-        logger.info"#############################{user.inspect}"
-        logger.info"#############################{(@project.project_users.where(:user_id => user.id)).inspect}"
-        logger.info"#############################{(@project.project_users.where(:user_id => user.id).first).inspect}"
+        user = @project.users.new(:email => member, :password => password, :password_confirmation => password)
         if user.save
-          p= @project.project_users.new(:user_id => user.id, :project_id => @project.id, :role => 'member')
+          p = @project.project_users.where(:user_id => user.id)
+          p.update_attribute(:role, 'member')
           user.skip_confirmation!
           UserMailer.new_user_email(user).deliver
         end
@@ -48,7 +43,6 @@ class ProjectsController < ApplicationController
     member = @users.collect{|u| {:id => u.email, :email => u.email}}
     #member = params[:q]
     if ((/\b[A-Z0-9._%a-z-]+@(?:[A-Z0-9a-z-]+.)+[A-Za-z]{2,4}\z/).match(params[:q]))
-      logger.info"----------"
       member = [{:id => params[:q], :email => params[:q]}]
     end
     respond_to do |format|
