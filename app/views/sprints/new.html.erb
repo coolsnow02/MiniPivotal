@@ -1,11 +1,12 @@
 <div class="">
   <div class="sprint_form form-horizontal">
-    <%= simple_form_for new_project_sprint_path(@project) do |f| %>
+    <%= simple_form_for(@sprint, :url => project_sprints_path(@project)) do |f| %>
         <%= f.input :name, :presence => true %>
-        <%= f.input :weeks, :presence => true %>
+        <%= f.input :week, :presence => true %>
         <%= f.input :points, :presence => true %>
         <%= f.input :number_of_developers %>
-        <%= f.input :member_names, :multiple => true %>
+        <%#= f.input :member_names, :multiple => true %>
+        <%= f.submit "Create Sprint" %>
     <% end %>
   </div>
 </div>

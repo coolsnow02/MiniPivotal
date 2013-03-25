@@ -6,4 +6,7 @@ class Sprint < ActiveRecord::Base
   #Associations
   belongs_to :project
   has_and_belongs_to_many :users
+
+  #Server side validations
+  validates :name, :presence => true
 end

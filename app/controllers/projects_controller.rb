@@ -20,6 +20,8 @@ class ProjectsController < ApplicationController
     members.each do |member|
       user = User.search(member)
       if user.present?
+        #@project.project_users.new(:user_id => user.id, :project_id => @project.id, :role => 'member')
+
         UserMailer.welcome_email(member).deliver
       else
         password = 8.times.map{('a'..'z').to_a[rand(26)]}.join
@@ -32,13 +34,6 @@ class ProjectsController < ApplicationController
           UserMailer.new_user_email(user).deliver
         end
       end
-      #if member==current_user.email
-      #  project_member = User.where(:email => member).first
-      #  @project.project_user.where(:user_id => project_member.id, :project_id => @project.id).first.role = "owner"
-        #else
-        #  project_member = User.where(:email => member)
-        #  @project.project_user.new(:user_id => project_member.id, :project_id => @project.id, :role => "member")
-      #end
     end
     redirect_to root_path
   end

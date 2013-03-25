@@ -6,6 +6,13 @@ class SprintsController < ApplicationController
   end
 
   def create
-    sprint = Sprint.new(params[:sprint])
+    @project = params[:project_id]
+    @sprint = Sprint.new(params[:sprint])
+    if @sprint.save
+      redirect_to project_path(@project)
+    else
+      render 'new'
+    end
+
   end
 end
